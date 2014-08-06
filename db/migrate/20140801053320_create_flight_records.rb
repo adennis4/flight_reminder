@@ -5,7 +5,7 @@ class CreateFlightRecords < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :email
-      t.string :flight_date
+      t.date :flight_date
       t.time :flight_time
       t.string :departure_time_zone
       t.timestamps

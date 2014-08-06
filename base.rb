@@ -28,3 +28,8 @@ class FlightCheckin < Sinatra::Base
     halt 404, 'guess again'
   end
 end
+
+class FlightRecord < ActiveRecord::Base
+  validates_presence_of :confirmation, :first_name, :last_name, :email, :flight_date, :flight_time, :departure_time_zone
+
+end
