@@ -1,0 +1,11 @@
+%html
+  %head
+    %title Flight Reminder
+  %body
+    - if flash[:notice]
+      %p{class: 'alert alert-success'}= flash[:notice]
+    - if flash[:error]
+      %p{class: 'alert alert-error'}= flash[:error]
+
+    = yield
+

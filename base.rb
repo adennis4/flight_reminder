@@ -1,13 +1,12 @@
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'rack-flash'
 require './environments'
 require 'haml'
 
-class FlightRecord < ActiveRecord::Base
-
-end
-
 class FlightCheckin < Sinatra::Base
+  enable :sessions
+  use Rack::Flash
 
   get '/' do
     haml :index
@@ -17,9 +16,11 @@ class FlightCheckin < Sinatra::Base
     @record = FlightRecord.new params
 
     if @record.save
+      flash[:notice] = "#{@record.first_name}, you will be automatically checked-in for your flight."
       redirect '/'
     else
-      render '/'
+      flash[:error] = "You left something blank -- or I messed something up and you should text me."
+      redirect '/'
     end
   end
 

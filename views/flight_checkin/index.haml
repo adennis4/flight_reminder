@@ -1,0 +1,35 @@
+- if flash[:notice]
+  %p{class: 'alert alert-success'}= flash[:notice]
+- if flash[:error]
+  %p{class: 'alert alert-error'}= flash[:error]
+
+%form{action: '/', method: 'post'}
+  %fieldset
+    %ul
+      %li
+        %label{for: 'confirmation'} Confirmation Code:
+        %input{type: 'text', name: 'confirmation'}
+      %li
+        %label{for: 'first_name'} First Name:
+        %input{type: 'text', name: 'first_name'}
+      %li
+        %label{for: 'last_name'} Last Name:
+        %input{type: 'text', name: 'last_name'}
+      %li
+        %label{for: 'email'} Email:
+        %input{type: 'text', name: 'email'}
+      %li
+        %label{for: 'flight_date'} Flight Date
+        %input{type: 'text', name: 'flight_date'}
+      %li
+        %label{for: 'flight_time'} Flight Time
+        %input{type: 'text', name: 'flight_time'}
+      %li
+        %label{for: 'departure_time_zone'} Departure Time Zone
+        %select{name: 'departure_time_zone'}
+          %option{value: 'Central'} Central
+          %option{value: 'Pacific'} Pacific
+          %option{value: 'Eastern'} Eastern
+          %option{value: 'Mountain'} Mountain
+
+      %input{type: 'submit', value: 'Auto Check Me In!', class: 'button'}

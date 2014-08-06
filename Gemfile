@@ -4,8 +4,7 @@ gem 'activerecord'
 gem 'haml'
 gem 'sinatra'
 gem 'sinatra-activerecord'
-gem 'sinatra-flash'
-gem 'sinatra-redirect-with-flash'
+gem 'rack-flash3'
 
 group :development do
   gem 'sqlite3'
