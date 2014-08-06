@@ -3,12 +3,14 @@
     %title Flight Reminder
     %script{ type: 'text/javascript', src: 'js/jquery-2.1.1.min.js' }
     %script{ type: 'text/javascript', src: 'js/jquery-ui.min.js' }
+    %script{ type: 'text/javascript', src: 'js/jquery-ui-timepicker.js' }
     %link{ rel: 'stylesheet', type: 'text/css', href: 'stylesheets/jquery-ui.theme.css' }
     %link{ rel: 'stylesheet', type: 'text/css', href: 'stylesheets/jquery-ui.structure.css' }
 
     :javascript
       $(document).ready( function() {
-        $('#datepicker').datepicker();
+        $('#datepicker').datepicker()
+        $('#timepicker').timepicker();
       });
 
   %body
