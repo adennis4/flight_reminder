@@ -14,13 +14,13 @@ class FlightCheckin < Sinatra::Base
   end
 
   post '/' do
-    confirmation = params[:confirmation]
-    first_name = params[:first_name]
-    last_name = params[:last_name]
-    email = params[:email]
-    flight_date = params[:flight_date]
-    flight_time = params[:flight_time]
-    departure_time_zone = params[:departure_time_zone]
+    @record = FlightRecord.new params
+
+    if @record.save
+      redirect '/'
+    else
+      render '/'
+    end
   end
 
   not_found do
