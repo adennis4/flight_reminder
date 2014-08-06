@@ -4,6 +4,10 @@ class FlightCheckin < Sinatra::Base
   enable :sessions
   use Rack::Flash
 
+  use Rack::Auth::Basic, "Restricted Area" do |user, pass|
+    user == 'andrew' and pass == 'rulez'
+  end
+
   get '/' do
     haml :index
   end
