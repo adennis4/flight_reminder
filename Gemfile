@@ -7,6 +7,7 @@ gem 'pry'
 gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'rack-flash3', require: 'rack-flash'
+gem 'resque-scheduler'
 
 group :development do
   gem 'sqlite3'

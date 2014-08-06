@@ -12,7 +12,7 @@ class FlightCheckin < Sinatra::Base
     @record = FlightRecordBuilder.build params
 
     if @record.save
-      TravelAgent.new @record
+      CheckinJob.schedule @record
       flash[:notice] = "#{@record.first_name}, you will be automatically checked-in for your flight."
       redirect '/'
     else
