@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140806151545) do
+ActiveRecord::Schema.define(version: 20140806203824) do
 
   create_table "flight_records", force: true do |t|
     t.string   "confirmation"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140806151545) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "depart_at"
+    t.string   "status",       default: "incomplete"
   end
 
 end

@@ -16,5 +16,7 @@ class TravelAgent
       form.field_with(name: 'firstName').value = @record.first_name
       form.field_with(name: 'lastName').value = @record.last_name
     end.submit
+
+    @record.checked_in!
   end
 end
