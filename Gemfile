@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'activerecord'
 gem 'haml'
+gem 'mechanize'
+gem 'pry'
 gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'rack-flash3'
