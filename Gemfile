@@ -6,7 +6,7 @@ gem 'mechanize'
 gem 'pry'
 gem 'sinatra'
 gem 'sinatra-activerecord'
-gem 'rack-flash3'
+gem 'rack-flash3', require: 'rack-flash'
 
 group :development do
   gem 'sqlite3'
