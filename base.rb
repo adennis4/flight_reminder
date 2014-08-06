@@ -9,7 +9,7 @@ class FlightCheckin < Sinatra::Base
   end
 
   post '/' do
-    @record = FlightRecord.new params
+    @record = FlightRecordBuilder.build params
 
     if @record.save
       TravelAgent.new @record
