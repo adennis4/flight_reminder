@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'rack-flash'
+require 'pry'
 require './environments'
 require 'haml'
 
