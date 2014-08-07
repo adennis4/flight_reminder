@@ -33,6 +33,7 @@ class TravelAgent
     boarding_group = @confirmation_page.at('.boardingInfo').text
     boarding_number = @confirmation_page.at('.boarding_position').text
     boarding_info = boarding_group + boarding_number
+    @record.add_boarding_number(boarding_info)
   end
 
   def send_email

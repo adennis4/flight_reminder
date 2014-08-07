@@ -4,5 +4,9 @@ class FlightRecord < ActiveRecord::Base
   def checked_in!
     update_attribute :status, 'complete'
   end
+
+  def add_boarding_number(num)
+    update_attribute :boarding_number, num
+  end
 end
 
