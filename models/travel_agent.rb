@@ -7,26 +7,36 @@ class TravelAgent
     @record = record
   end
 
-  def checkin
-    agent = Mechanize.new
+  def agent
+    @agent ||= Mechanize.new
+  end
 
-    page = agent.get "http://www.southwest.com"
-    review_page = page.form_with(id: 'retrieveItinerary') do |form|
+  def page
+    agent.get "http://www.southwest.com"
+  end
+
+  def review_page
+    page.form_with(id: 'retrieveItinerary') do |form|
       form.field_with(name: 'confirmationNumber').value = @record.confirmation
       form.field_with(name: 'firstName').value = @record.first_name
       form.field_with(name: 'lastName').value = @record.last_name
     end.submit
+  end
 
+  def review
     review_form = review_page.form_with(id: 'checkinOptions')
     button = review_form.button_with(value: "Check In")
-    confirmation_page = agent.submit(review_form, button)
+    @confirmation_page = agent.submit(review_form, button)
+  end
 
-    boarding_group = confirmation_page.at('.boardingInfo').text
-    boarding_number = confirmation_page.at('.boarding_position').text
-
+  def confirm
+    boarding_group = @confirmation_page.at('.boardingInfo').text
+    boarding_number = @confirmation_page.at('.boarding_position').text
     boarding_info = boarding_group + boarding_number
+  end
 
-    confirmation_form = confirmation_page.form_with(id: 'mobileBoardingPassOptionsForm')
+  def send_email
+    confirmation_form = @confirmation_page.form_with(id: 'mobileBoardingPassOptionsForm')
 
     confirmation_form.checkbox_with(name: 'optionEmail').check
     confirmation_form.field_with(name: 'emailAddress').value = @record.email
@@ -34,4 +44,11 @@ class TravelAgent
 
     @record.checked_in!
   end
+
+  def checkin
+    review
+    confirm
+    send_email
+  end
+
 end
