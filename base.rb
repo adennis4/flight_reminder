@@ -1,4 +1,4 @@
-require './environments'
+require './config/environments'
 
 class FlightCheckin < Sinatra::Base
   enable :sessions
