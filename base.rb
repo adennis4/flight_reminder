@@ -8,7 +8,10 @@ class FlightCheckin < Sinatra::Base
     user == 'andrew' and pass == 'rulez'
   end
 
+
   get '/' do
+    @incomplete_flights = FlightRecord.incomplete_flights(5)
+    @complete_flights = FlightRecord.complete_flights(5)
     haml :index
   end
 
