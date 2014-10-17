@@ -18,8 +18,10 @@ GEM
     bond (0.5.1)
     builder (3.2.2)
     coderay (1.0.9)
+    daemons (1.1.9)
     domain_name (0.5.19)
       unf (>= 0.0.5, < 1.0.0)
+    eventmachine (1.0.3)
     haml (4.0.3)
       tilt
     http-cookie (1.0.2)
@@ -91,6 +93,10 @@ GEM
       activerecord (>= 3.2)
       sinatra (~> 1.0)
     slop (3.4.5)
+    thin (1.6.3)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0)
+      rack (~> 1.0)
     thread_safe (0.3.4)
     tilt (1.4.1)
     tux (0.3.0)
@@ -121,4 +127,5 @@ DEPENDENCIES
   resque-scheduler
   sinatra
   sinatra-activerecord
+  thin
   tux
